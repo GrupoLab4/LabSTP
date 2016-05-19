@@ -14,17 +14,19 @@
 \tableofcontents
 \listoffigures
 \chapter{Introducción}
-  En este laboratorio se comprobara el funcionamiento del protocolo STP (IEEE 802.1D),  esto se llevara a cabo gracias al uso del programa CISCO Packet Tracer, también se implementara el protocolo de  VLAN (IEEE 802.1Q), de esta manera se dará a entender cómo funciona, qué  ventajas tiene, y como implementarlo de manera eficiente.
-  
-  \includegraphics[width=\textwidth]{ejemplo}
-
+  En este laboratorio se comprobará el funcionamiento del protocolo STP (IEEE 802.1D),  esto se llevara a cabo gracias al uso del programa CISCO Packet Tracer, también se implementará el protocolo de  VLAN (IEEE 802.1Q), de esta manera se dará a entender cómo funciona, qué  ventajas tiene, y como implementarlo de manera eficiente.
+  	\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{ejemplo}
+	\caption{Ejemplo de una red distribuida con VLAN}
+	\end{figure}\\	
   \vfill
   
 \chapter{Actividades}
 	\section{Topología base con bucles}
 	Primero se procede a abrir el programa CISCO Packet Tracer, desde la consola del equipo del laboratorio, una vez hecho esto se
 	continúa a sacar tres switch desde la parte inferior izquierda en el apartado de switch, después se posicionan de manera que
-	formen un triángulo y así formen una topología con bucles.\\\\
+	formen un triángulo,uniendo con enlaces truzados para lograr formar una topología con bucles.Gracias al STP la conexión entre switch 1 y switch 2 se desactiva parcialmente para así evitar bucles \\\\
 	\begin{figure}[H]
     \centering
     \includegraphics[width=8cm]{act1}
@@ -42,10 +44,9 @@
             Como el protocolo STP afectó al enlace entre estos switches dejando el puerto que va desde el switch 1 al switch 2 como bloqueado. El camino recorrido por el paquete será: Switch 2 - Switch 0 - Switch 1.\\\\\\\\\\\ 
 	\end{enumerate}
 	\section{Configuración de STP}
-	Una vez con la topología con bucles se procede a aplicarle el protocolo STP, para llevar esto acabo se deberá configurar cada
+	Una vez con la topología con bucles se procede a aplicar el protocolo STP, para llevar esto acabo se deberá configurar cada
 	switch desde la consola, esto se realiza haciendo clic en el switch, después se va a la pestaña donde dice CLI, y ahí se le
-	ingresan los comandos correspondientes para configurar cada switch según sea necesario. Se configura un switch como
-	primario y los otros dos como secundarios.\\
+	ingresan los comandos correspondientes para configurar cada switch según sea necesario. Se configura un el switch 1 como root primario y switch 0 como root secundario afectando asi el orden de un STP no configurado manualmente.\\
 	\begin{figure}[H]
 	\centering
 	\includegraphics[width=8cm]{act2}
@@ -62,7 +63,8 @@
 	\end{enumerate}
 	\section{Priorización STP}
 	   
-	    Ya aplicada la configuración del STP se continua a asignarle una prioridad a cada switch,  para esto nuevamente se hace clic	sobre él, y luego se dirige hacia la pestaña CLI, ya una vez ahí se le asigna la prioridad a cada switch con el comandocorrespondiente, al switch0 se le asigna prioridad 2, el switch 1 prioridad 1, mientras que al switch2 no se le asigna prioridad.
+	    Ya aplicada la configuración del STP se continua a asignarle una prioridad a cada switch,  para esto nuevamente se hace clic	sobre él, se dirige hacia la pestaña CLI, ya una vez ahí se le asigna la prioridad a cada switch con el comando correspondiente, al switch0 se le asigna prioridad 2, el switch 1 prioridad 1, mientras que al switch2 no se le asigna ninguna prioridad.
+	    
         \begin{figure}[H]
 	\centering
 	\includegraphics[width=8cm]{act2}
@@ -71,8 +73,8 @@
 	\vfill 
 
 	\section{Configuración VLAN}
-	    Para realizar esta actividad primero se armara una topología idéntica a la que se entrega, para esto se sacaran 6 switch, y 8 equipos, una vez ubicándolos bien en el espacio se procede a configurar cada VLAN, para que esto se lleve a cabo primero se deberá agregar cada VLAN a cada switch correspondiente, esto se hace directamente en la consola de cada switch, luego se configurar la puerta de red, la cual puede estar en modo Access o en modo Trunk, se utilizara el modo Access cuando se trate de una sola VLAN que transitara por ahí, por el contrario si van a transitar muchas VLAN se deberá configurar en modo Trunk.\\\\
-    Para finalizar y comprobar que la configuración este correcta se realiza un ping desde cada equipo y se observa que cada
+	    Para realizar esta actividad primero se armara una topología idéntica a la que se entrega, para esto se sacaran 6 switch, y 8 equipos, una vez ubicados bien en el espacio se procede a configurar cada VLAN, para que esto se lleve a cabo primero se deberá agregar cada VLAN a cada switch correspondiente, esto se hace directamente en la consola de cada switch, luego se configurar la puerta de red, la cual puede estar en modo Access o en modo Trunk, se utilizara el modo Access cuando se trate de una sola VLAN que transitara por ahí, por el contrario si van a transitar muchas VLAN se deberá configurar en modo Trunk.Esto es muy importante ya que si se asignan VLANS de más a c/trunk afectará a la calidad de la red\\\\
+    Para finalizar y comprobar que la configuración este correcta se realiza un ping desde cada equipo , se observa que cada
 	paquete le llegue solo a los equipos pertenecientes a la misma VLAN.\\
 	
 	\begin{figure}[H]
@@ -92,13 +94,13 @@
               Transmitirían entre ellos solo los paquetes pertenecientes a la VLAN 
   	      permitida en el Switch configurado en modo Access.
   	     \item  ¿Qué camino realizara un paquete que para llegar desde el switch 1 hasta el switch 0?\\\\
-  	        Para que el paquete pueda realizar este camino necesariamente debe pertenecer a la VLAN 1, al decirnos que va del SW1 al SW0 se deduce que el equipo de destino es el PC0, y como la VLAN1 tiene solo 2 equipos el equipo de origen seria el PC7.Por conclusión la ruta que seguiría el paquete seria primero el PC7, luego se dirige al SW3, de ahí va al SW1, luego al SW0, y finalmente llega al PC0.
+  	       Para que el paquete pueda realizar este camino necesariamente debe pertenecer a la VLAN 1, al decirnos que va del SW1 al SW0 se deduce que el equipo de destino es el PC0, y como la VLAN1 tiene solo 2 equipos el equipo de origen seria el PC7.Por conclusión la ruta que seguiría el paquete seria primero el PC7, luego se dirige al SW3, de ahí va al SW1, luego al SW0, y finalmente llega al PC0.
   	     
 	\end{enumerate}
 \chapter{Conclusión}
- De esta experiencia hemos aprendido como poder evitar que se hagan bucles en una topología al usar el Spanning Tree Protocol (STP) y de esta forma mejorar el rendimiento de ella, también se llevó a cabo la implementación de una red VLAN y con esto entendimos cuando utilizarla puede ser útil y muchas veces necesario por las ventajas que proporciona, como una mayor seguridad al segmentar los grupos de trabajo y así poder clasificar la información a la cual se puede acceder cada grupo, potenciar el rendimiento en general al reducir el tráfico innecesario que se puede presentar en la red, o disminuir la tormenta broadcast.\\
+ De esta experiencia se aprende a poder evitar que se hagan bucles en una topología al usar el Spanning Tree Protocol (STP) y de esta forma mejorar el rendimiento de ella, también se llevó a cabo la implementación de una red VLAN , en la cual  se logra  entender que  utilizarla puede ser útil y muchas veces necesario por las ventajas que proporciona, como una mayor seguridad al segmentar los grupos de trabajo y así poder clasificar la información a la cual se puede acceder cada grupo, potenciar el rendimiento en general al reducir el tráfico innecesario que se puede presentar en la red, o disminuir la tormenta broadcast.\\
 \begin{thebibliography}{x}
-\bibitem{Website Osi} \textsc{Cisco DOCUMENTATION},
+\bibitem{Website Osi} \textsc{Cisco },
 \textit{cisco.utmetropolitana.edu.mx}
 
 \bibitem{Website} \textsc{Implementación VLAN},
