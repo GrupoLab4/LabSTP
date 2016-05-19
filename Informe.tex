@@ -12,7 +12,9 @@
 \tableofcontents
 \listoffigures
 \chapter{Introducción}
-  En este laboratorio se comprobara el funcionamiento del protocolo STP (IEEE 802.1D),  esto se llevara a cabo gracias al uso del programa CISCO Packet Tracer, también se implementara el protocolo de  VLAN (IEEE 802.1Q), de esta manera podremos entender cómo funciona, qué  ventajas tiene, y como implementarlo de manera eficiente.
+  El desarrollo de este laboratorio tiene como finalidad comprender el funcionamiento del protocolo STP (IEEE 802.1D), lo que se
+  llevará a cabo gracias al uso del programa CISCO Packet Tracer, también aprenderemos a implementar una VLAN (IEEE 802.1Q) para poder
+  identificar de esta manera cómo es que funciona y las ventajas que incorpora a una red de trabajo.
 \chapter{Actividades}
 	\section{Topología base con bucles}
 	
@@ -32,10 +34,12 @@
 	\begin{enumerate}
 	    \item ¿Qué camino realizará un paquete que para llegar desde el switch
 2 hasta el switch0?\\\\
-        Como el protocolo STP afectó al enlace entre estos switches dejando el puerto que va desde el switch 2 al switch 0 como bloqueado. El camino recorrido por el paquete será: Switch 2 - Switch 1 - Switch 0. 
+        Como el protocolo STP afectó al enlace entre estos switches dejando el puerto que va desde el switch 2 al switch 0 como
+        bloqueado. El camino recorrido por el paquete será: Switch 2 - Switch 1 - Switch 0. 
         \item  ¿Qué camino realizará un paquete que para llegar desde el switch
 1 hasta el switch0?\\\\
-          Como el protocolo STP no afectó al enlace entre estos switches, el paquete se envía de forma directa sin pasar por otro switch.
+          Como el protocolo STP no afectó al enlace entre estos switches, el paquete se envía de forma directa sin pasar por otro
+          switch.
 	\end{enumerate}
 	\section{Priorización STP}
 	
@@ -44,9 +48,12 @@
 	{\large \bf{Cuestionario: }}\\
 	\begin{enumerate}
 	    \item ¿Cuál es la diferencia del modo Access y el modo Trunk en un switch?\\\\
-	         El modo Trunk se utiliza para configurar las conexiones de switch a switch, indicando las vlan que pueden pasar por ese enlace. Por otro lado el modo Access es para conexiones desde el switch a un host, para indicar la vlan que puede pasar por el canal (por lo general es la misma vlan a la que pertenece el host).
+	         El modo Trunk se utiliza para configurar las conexiones de switch a switch, indicando las vlan que pueden pasar por
+	         ese enlace. Por otro lado el modo Access es para conexiones desde el switch a un host, para indicar la vlan que puede
+	         pasar por el canal (por lo general es la misma vlan a la que pertenece el host).
         \item  ¿Qué ocurre si conecto una puerta en modo Trunk a un PC?\\\\
-            Llegarían al PC todos los paquetes provenientes de las VLAN permitidas en la configuración del modo Trunk del respectivo puerto.
+            Llegarían al PC todos los paquetes provenientes de las VLAN permitidas en la configuración del modo Trunk del respectivo
+            puerto.
         \item ¿Qué ocurre si conecto dos switches, uno en modo access y otro en modo trunk?\\\\
               Transmitirían entre ellos solo los paquetes pertenecientes a la VLAN 
   	      permitida en el Switch configurado en modo Access.
