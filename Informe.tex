@@ -92,7 +92,7 @@
               Transmitirían entre ellos solo los paquetes pertenecientes a la VLAN 
   	      permitida en el Switch configurado en modo Access.
   	     \item  ¿Qué camino realizara un paquete que para llegar desde el switch 1 hasta el switch 0?\\\\
-  	        El paquete enviado de el switch 1 no logrará llegar a su destino,ya que dichos pc's son de VLAN diferentes.
+  	        Para que el paquete pueda realizar este camino necesariamente debe pertenecer a la VLAN 1, al decirnos que va del SW1 al SW0 se deduce que el equipo de destino es el PC0, y como la VLAN1 tiene solo 2 equipos el equipo de origen seria el PC7.Por conclusión la ruta que seguiría el paquete seria primero el PC7, luego se dirige al SW3, de ahí va al SW1, luego al SW0, y finalmente llega al PC0.
   	     
 	\end{enumerate}
 \chapter{Conclusión}
