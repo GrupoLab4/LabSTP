@@ -14,7 +14,12 @@
 \tableofcontents
 \listoffigures
 \chapter{Introducción}
-  En este laboratorio se comprobara el funcionamiento del protocolo STP (IEEE 802.1D),  esto se llevara a cabo gracias al uso del programa CISCO Packet Tracer, también se implementara el protocolo de  VLAN (IEEE 802.1Q), de esta manera podremos entender cómo funciona, qué  ventajas tiene, y como implementarlo de manera eficiente.
+  En este laboratorio se comprobara el funcionamiento del protocolo STP (IEEE 802.1D),  esto se llevara a cabo gracias al uso del programa CISCO Packet Tracer, también se implementara el protocolo de  VLAN (IEEE 802.1Q), de esta manera se dará a entender cómo funciona, qué  ventajas tiene, y como implementarlo de manera eficiente.
+  
+  \includegraphics[width=\textwidth]{ejemplo}
+
+  \vfill
+  
 \chapter{Actividades}
 	\section{Topología base con bucles}
 	Primero se procede a abrir el programa CISCO Packet Tracer, desde la consola del equipo del laboratorio, una vez hecho esto se
@@ -53,15 +58,29 @@
         \item  ¿Qué camino realizará un paquete que para llegar desde el switch
 1 hasta el switch0?\\\\
           Como el protocolo STP no afectó al enlace entre estos switches, el paquete se envía de forma directa sin pasar por otro switch.
+          \vfill 
 	\end{enumerate}
 	\section{Priorización STP}
 	   
-	    Ya aplicada la configuración del STP se continua a asignarle una prioridad a cada switch,  para esto nuevamente se hace clic	sobre él, y luego se dirige hacia la pestaña CLI, ya una vez ahí se le asigna la prioridad a cada switch con el comandocorrespondiente, al switch0 se le asigna prioridad 2, el switch 1 prioridad 1, mientras que al switch2 no se le asigna prioridad.\\
-	
+	    Ya aplicada la configuración del STP se continua a asignarle una prioridad a cada switch,  para esto nuevamente se hace clic	sobre él, y luego se dirige hacia la pestaña CLI, ya una vez ahí se le asigna la prioridad a cada switch con el comandocorrespondiente, al switch0 se le asigna prioridad 2, el switch 1 prioridad 1, mientras que al switch2 no se le asigna prioridad.
+        \begin{figure}[H]
+	\centering
+	\includegraphics[width=8cm]{act2}
+	\caption{Topología con prioridad}
+	\end{figure}
+	\vfill 
+
 	\section{Configuración VLAN}
 	    Para realizar esta actividad primero se armara una topología idéntica a la que se entrega, para esto se sacaran 6 switch, y 8 equipos, una vez ubicándolos bien en el espacio se procede a configurar cada VLAN, para que esto se lleve a cabo primero se deberá agregar cada VLAN a cada switch correspondiente, esto se hace directamente en la consola de cada switch, luego se configurar la puerta de red, la cual puede estar en modo Access o en modo Trunk, se utilizara el modo Access cuando se trate de una sola VLAN que transitara por ahí, por el contrario si van a transitar muchas VLAN se deberá configurar en modo Trunk.\\\\
     Para finalizar y comprobar que la configuración este correcta se realiza un ping desde cada equipo y se observa que cada
 	paquete le llegue solo a los equipos pertenecientes a la misma VLAN.\\
+	
+	\begin{figure}[H]
+	\centering
+	\includegraphics[width=8cm]{act4}
+	\caption{Topología con VLANS}
+	\end{figure}\\	
+	
 	
 	{\large \bf{Cuestionario: }}\\
 	\begin{enumerate}
@@ -73,22 +92,18 @@
               Transmitirían entre ellos solo los paquetes pertenecientes a la VLAN 
   	      permitida en el Switch configurado en modo Access.
   	     \item  ¿Qué camino realizara un paquete que para llegar desde el switch 1 hasta el switch 0?\\\\
+  	        El paquete enviado de el switch 1 no logrará llegar a su destino,ya que dichos pc's son de VLAN diferentes.
   	     
 	\end{enumerate}
 \chapter{Conclusión}
-  	     De esta experiencia hemos aprendido como poder evitar que se hagan bucles en una topología al usar el Spanning Tree
-  	     Protocol (STP) y de esta forma mejorar el rendimiento de ella, también se llevó a cabo la implementación de una red VLAN
-  	     y con esto entendimos cuando utilizarla puede ser útil y muchas veces necesario por las ventajas que proporciona, como
-  	     una mayor seguridad al segmentar los grupos de trabajo y así poder clasificar la información a la cual se puede acceder
-  	     cada grupo, potenciar el rendimiento en general al reducir el tráfico innecesario que se puede presentar en la red, o
-  	     disminuir la tormenta broadcast, por mencionar algunas.
-  	      
- %MODIFICAR BIBLIOGRAFÍA ENTERA !! APRENDAN LATEX ! gg wp
+ De esta experiencia hemos aprendido como poder evitar que se hagan bucles en una topología al usar el Spanning Tree Protocol (STP) y de esta forma mejorar el rendimiento de ella, también se llevó a cabo la implementación de una red VLAN y con esto entendimos cuando utilizarla puede ser útil y muchas veces necesario por las ventajas que proporciona, como una mayor seguridad al segmentar los grupos de trabajo y así poder clasificar la información a la cual se puede acceder cada grupo, potenciar el rendimiento en general al reducir el tráfico innecesario que se puede presentar en la red, o disminuir la tormenta broadcast.\\
 \begin{thebibliography}{x}
-\bibitem{Scapy Documentation} \textsc{Scapy Documentation},
-\textit{http://www.secdev.org/projects/scapy/files/scapydoc.pdf}
-\bibitem{Cisco Osi} \textsc{Cisco},
-\textit{ http://www.cisco.com/cpress/cc/td/cpress/fund/ith/ith01gb.htm#xtocid166844}
+\bibitem{Website Osi} \textsc{Cisco DOCUMENTATION},
+\textit{cisco.utmetropolitana.edu.mx}
+
+\bibitem{Website} \textsc{Implementación VLAN},
+\textit{https://docs.oracle.com/cd/E37929_01/html/E36606/fpjve.html}
+
 \end{thebibliography}
-% -----------------------------------------------------------------------------------------------
+
 \end{document}
