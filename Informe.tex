@@ -48,9 +48,9 @@
 	{\large \bf{Cuestionario: }}\\
 	\begin{enumerate}
 	    \item ¿Cuál es la diferencia del modo Access y el modo Trunk en un switch?\\\\
-	         El modo Trunk se utiliza para configurar las conexiones de switch a switch, indicando las vlan que pueden pasar por
-	         ese enlace. Por otro lado el modo Access es para conexiones desde el switch a un host, para indicar la vlan que puede
-	         pasar por el canal (por lo general es la misma vlan a la que pertenece el host).
+	         El modo Access permite el paso de una única VLAN por el puerto configurado (normalmente se utiliza para conectar con
+	         los dispositivos finales), mientras que el modo Trunk permite manejar el flujo de varías VLANs por un mismo puerto 
+	         (esta configuración se utiliza generalmente para conectar los switches entre ellos)
         \item  ¿Qué ocurre si conecto una puerta en modo Trunk a un PC?\\\\
             Llegarían al PC todos los paquetes provenientes de las VLAN permitidas en la configuración del modo Trunk del respectivo
             puerto.
